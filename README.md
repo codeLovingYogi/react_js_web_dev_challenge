@@ -1,3 +1,30 @@
+## Quill Web Developer Challenge
+
+The goal of this exercise is to see how you problem solve and work with React.js
+
+#### Initial Steps
+
+- fork this repo
+- clone to your local machine
+- run `npm install`
+- run `npm start`
+
+You now have a running development environment for working with React.
+This project is based on [Create React App](https://github.com/facebookincubator/create-react-app) so that you can focus on coding instead of setting up the Webpack etc. I've left the instructions for Create React App at the bottom of this README.
+
+#### Rules
+- The app must be able to handle the 3 features detailed in the [mockup](/public/mockup.png)
+- Design/Styling is not the focus of the task
+- You may add any npm packages you like (except Angular, Backbone etc.)
+- You should work independently on this exercise
+- You have until the 7th of November to complete this task
+- If you have any questions reach out to Donald
+
+![mockup](/public/mockup.png)
+
+
+## * All Content Below is from Create React App *
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
