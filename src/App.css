@@ -20,3 +20,88 @@ body {
 .App-intro {
   font-size: large;
 }
+
+.addButton {
+  background-color: #00c2a2;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  font-size: 1em;
+  font-weight: 700;
+  height: 30px;
+  width: 20%;
+}
+
+.nextButton {
+  background-color: #00c2a2;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  display: block;
+  float: right;
+  font-size: 1em;
+  font-weight: 700;
+  height: 30px;
+  width: 20%;
+}
+
+.removeButton {
+  background-color: #00c2a2;
+  color: #ffffff;
+  border-radius: 6px;
+  border: none;
+  float: right;
+  font-size: 1em;
+}
+/*
+@media screen and (min-width: 600px) {
+  css style..
+}*/
+.passage {
+  outline-style: none;
+  border-style: none;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1em;
+  font-family: 'courier new';
+	height: 200px;
+	width: 75%;
+}
+
+.concept {
+  float: left;
+  text-align: right;
+  padding: 10px;
+  width: 40%;
+}
+.eachConcept {
+  /*width: 10px;*/
+}
+.select-style {
+  display: inline;
+  float: right;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  width: 120px;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  background: #fff url("/arrow.gif") no-repeat 90% 50%;
+}
+
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
