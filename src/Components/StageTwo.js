@@ -19,10 +19,9 @@ class StageTwo extends Component {
   	// Check that passage was modified, find edits, and advance to next stage
 	nextStage() {
 		var edited = this.refs.editedText.value;
-		if(this.props.passage === edited) {
+		if (this.props.passage === edited) {
 			alert("No edits entered in passage.");
-		}
-		else {
+		} else {
 			// Use diff tool to find edits between original and edited passage
 			var edits = diffs.getEdits(this.props.passage, edited);
 			// Call parent function to save edits
@@ -34,8 +33,10 @@ class StageTwo extends Component {
 	render() {
 		return (
 			<main>
-				<h1>Stage 2:</h1>
-				<h2>User adds errors to the passage of text</h2>
+				<header>
+					<h1 className="header">Stage 2:</h1>
+					<h2 className="header">User adds errors to the passage of text</h2>
+				</header>
 				<section>
 					<textarea onChange={this.handleChange} ref="editedText" className="passage" defaultValue={this.props.passage}/>
 				</section>

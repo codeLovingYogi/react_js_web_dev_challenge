@@ -20,13 +20,13 @@ class StageThree extends Component {
 
 	// Render view for each edit and selected concept
 	eachConcept(edit, i) {
-		return(
+		return (
 			<Concept key={i} index={i} original={edit.original} edit={edit.edit} select={edit.concept} onChange={this.handleConceptChange} deleteFromConcepts={this.deleteConcept} />
 		)
 	}
 
 	// Upon selection of concept, save to parent list of edits
-	handleConceptChange(i, concept){
+	handleConceptChange(i, concept) {
 		var arr = this.props.edits;
 		arr[i]['concept'] = concept;
 		this.props.onChange(arr);
@@ -35,8 +35,10 @@ class StageThree extends Component {
 	render() {
 		return (
 			<main>
-				<h1>Stage 3:</h1>
-				<h2>User assigns concepts to the edits</h2>
+				<header>
+					<h1 className="header">Stage 3:</h1>
+					<h2 className="header">User assigns concepts to the edits</h2>
+				</header>
 				<section>
 					{
 						this.props.edits.map(this.eachConcept)

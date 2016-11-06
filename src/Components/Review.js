@@ -15,12 +15,12 @@ class Review extends Component {
 	}
 
 	eachConcept(edit, i) {
-		return(
+		return (
 			<ConceptEdit key={i} index={i} original={edit.original} edit={edit.edit} select={edit.concept} />
 		)
 	}
 
-	handleConceptChange(i, concept){
+	handleConceptChange(i, concept) {
 		var arr = this.props.edits;
 		arr[i]['concept'] = concept;
 		this.props.onChange(arr);
@@ -31,16 +31,17 @@ class Review extends Component {
 	}
 
 	render() {
-		if(this.state.saved){
-			return(
+		if (this.state.saved) {
+			return (
 				<h1>Passage Saved</h1>
 			)
-		}
-		else{
+		} else {
 			return (
 				<main>
-					<h1>Stage 4:</h1>
-					<h2>Review</h2>
+					<header>
+						<h1 className="header">Stage 4:</h1>
+						<h2 className="header">Review</h2>
+					</header>
 					<section>
 						<h3>Passage:</h3>
 						<textarea readOnly className="passage" defaultValue={this.props.passage} />

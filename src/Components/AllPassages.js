@@ -12,19 +12,18 @@ class AllPassages extends Component {
 		}
 	}
 
-	newPassage(){
+	newPassage() {
 		this.setState({addNew: true});
 	}
 
 	render() {
-		if(this.state.addNew){
-			return <Passage addPassage={this.addPassage}/> 
-		}
-		else {
-			return(
-			<main>
-				<button className="addButton" onClick={this.newPassage}>Add Passage</button>
-			</main>
+		if (this.state.addNew) {
+			return <Passage addPassage={this.addPassage} /> 
+		} else {
+			return (
+				<main>
+					<button className="addButton" onClick={this.newPassage}>Add Passage</button>
+				</main>
 			)
 		}	
 	}

@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import '../App.css';
-import Concept from './Concept'
 import StageOne from './StageOne'
 import StageTwo from './StageTwo'
 import StageThree from './StageThree'
 import Review from './Review'
 import AllPassages from './AllPassages'
-var diffs = require('./GetDiffs');
 
 class Passage extends Component {
 	// Main component to track passage entry stage and information
@@ -63,7 +61,7 @@ class Passage extends Component {
 
 	// Renders different components based on passage's current stage
 	render() {
-		switch(this.state.stage){
+		switch(this.state.stage) {
 			case 1: 
 				return <StageOne passage={this.state.passage} onChange={this.savePassage} nextStage={this.incrementStage} />;
 				break;

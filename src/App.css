@@ -21,6 +21,15 @@ body {
   font-size: large;
 }
 
+header {
+  padding: 15px;
+}
+
+.header {
+  display: inline;
+  padding: 5px;
+}
+
 .addButton {
   background-color: #00c2a2;
   color: #ffffff;

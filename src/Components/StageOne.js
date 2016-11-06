@@ -20,8 +20,7 @@ class StageOne extends Component {
 		var passage = this.refs.inputText.value;
 		if(passage === "") {
 			alert("Please enter passage text.");
-		}
-		else {
+		} else {
 			this.props.nextStage();
 		}
 	}
@@ -29,8 +28,10 @@ class StageOne extends Component {
 	render() {
 		return (
 			<main>
-				<h1>Stage 1:</h1>
-				<h2 >User enters a passage of text</h2>
+				<header>
+					<h1 className="header">Stage 1:</h1>
+					<h2 className="header">User enters a passage of text</h2>
+				</header>
 				<section>
 					<textarea onChange={this.handleChange} ref="inputText" className="passage" placeholder="Write passage here..."/>
 				</section>
