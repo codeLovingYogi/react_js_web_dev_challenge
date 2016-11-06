@@ -3,6 +3,8 @@
 var jsdiff = require('diff');
 
 var errors = [];
+var commasOriginal = []; // To track sequence of comma changes
+var commasEdit = [];	// To track sequnce of comma changes
 
 var methods = {
 	getEdits: function(original, edit) {
@@ -12,9 +14,7 @@ var methods = {
 		var countPrior = 0; // Track previous rows to review 
 		var countAfter = 0; // To skip rows already reviewed
 		var commas = false;	// To track sequence of comma changes
-		var commasOriginal = [];
-		var commasEdit = [];
-
+		
 		// Loop through list of change objects returned from diff tool
 		for (var i = 0; i < n; i++) {
 			var original = "";
@@ -122,14 +122,13 @@ var methods = {
 
 					// Join list of comma changes into one and add edit
 					if (commasOriginal.length > 0) {
-						var commasO = commasOriginal.join(' ');
-						var commasE = commasEdit.join(' ');
-						this.addEdit(commasO, commasE);
-						commasOriginal = [];
-						commasEdit = [];
+						this.combineCommas(commasOriginal, commasEdit);
 					}
 				}
 			}
+		}
+		if (commasOriginal.length > 0) {
+			this.combineCommas(commasOriginal, commasEdit);
 		}
 		return errors;
 	},
@@ -158,6 +157,14 @@ var methods = {
 		error['original'] = original.trim();
 		error['edit'] = edit.trim();
 		errors.push(error);
+	},
+
+	combineCommas: function(originalList, editList) {
+		var commasO = originalList.join(' ');
+		var commasE = editList.join(' ');
+		this.addEdit(commasO, commasE);
+		commasOriginal = [];
+		commasEdit = [];
 	}
 };
 
