@@ -11,7 +11,10 @@ var methods = {
 		var n = diff.length
 		var countPrior = 0; // Track previous rows to review 
 		var countAfter = 0; // To skip rows already reviewed
-		
+		var commas = false;	// To track sequence of comma changes
+		var commasOriginal = [];
+		var commasEdit = [];
+
 		// Loop through list of change objects returned from diff tool
 		for (var i = 0; i < n; i++) {
 			var original = "";
@@ -101,8 +104,31 @@ var methods = {
 				}
 				countPrior = 0;
 				countAfter = 0;
-				this.addEdit(original, edit);
+				
+				// Find sequence of comma changes
+				if (original.indexOf(',') > 0) {
+					commas = true;
+				} else {
+					commas = false;
+				}
 
+				// Keep track of sequence of edits with commas
+				if (commas) {
+					commasOriginal.push(original);
+					commasEdit.push(edit);
+				} else {
+					// Add current edit
+					this.addEdit(original, edit);
+
+					// Join list of comma changes into one and add edit
+					if (commasOriginal.length > 0) {
+						var commasO = commasOriginal.join(' ');
+						var commasE = commasEdit.join(' ');
+						this.addEdit(commasO, commasE);
+						commasOriginal = [];
+						commasEdit = [];
+					}
+				}
 			}
 		}
 		return errors;
