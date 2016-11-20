@@ -106,11 +106,7 @@ var methods = {
 				countAfter = 0;
 				
 				// Find sequence of comma changes
-				if (original.indexOf(',') > 0) {
-					commas = true;
-				} else {
-					commas = false;
-				}
+				commas = original.indexOf(',') > 0 ? true : false;
 
 				// Keep track of sequence of edits with commas
 				if (commas) {
