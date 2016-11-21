@@ -13,7 +13,7 @@ class StageThree extends Component {
 
 	// For child component Concept to remove a concept
 	deleteConcept(i) {
-		var arr = this.props.edits;
+		let arr = this.props.edits;
 		arr.splice(i, 1);
 		this.props.onChange(arr);
 	}
@@ -27,7 +27,7 @@ class StageThree extends Component {
 
 	// Upon selection of concept, save to parent list of edits
 	handleConceptChange(i, concept) {
-		var arr = this.props.edits;
+		let arr = this.props.edits;
 		arr[i]['concept'] = concept;
 		this.props.onChange(arr);
 	}

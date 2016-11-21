@@ -36,7 +36,7 @@ class Passage extends Component {
 
 	// Saves list of edits found in Stage 2
 	addEdits(edits){
-		var list = [];
+		let list = [];
 		list = edits;
 		console.log(edits)
 		this.setState({edits: list});
@@ -44,14 +44,14 @@ class Passage extends Component {
 
 	// Saves concepts selected for each edit in Stage 3
 	addConcepts(concepts) {
-		var list = this.state.edits;
+		let list = this.state.edits;
 		list = concepts
 		this.setState({edits: list});
 	}
 
 	// Called to advance each stage to next stage
 	incrementStage() {
-		var stage = this.state.stage + 1;
+		let stage = this.state.stage + 1;
 		this.setState({stage: stage})
 	}
 

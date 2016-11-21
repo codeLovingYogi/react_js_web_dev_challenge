@@ -11,13 +11,13 @@ class StageOne extends Component {
 
 	// When passage entered, save to passage variable in parent component
 	handleChange(event) {
-    	var passage = event.target.value;
+    	let passage = event.target.value;
     	this.props.onChange(passage);
   	}
 
   	// Check that passage was entered and advance to next stage
 	nextStage() {
-		var passage = this.refs.inputText.value;
+		let passage = this.refs.inputText.value;
 		if(passage === "") {
 			alert("Please enter passage text.");
 		} else {

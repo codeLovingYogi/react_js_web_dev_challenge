@@ -1,30 +1,29 @@
 // Diff tool to identify differences between original and edited passages
+let jsdiff = require('diff');
 
-var jsdiff = require('diff');
+let errors = [];
+let commasOriginal = []; // To track sequence of comma changes
+let commasEdit = [];	// To track sequnce of comma changes
 
-var errors = [];
-var commasOriginal = []; // To track sequence of comma changes
-var commasEdit = [];	// To track sequnce of comma changes
-
-var methods = {
+let methods = {
 	getEdits: function(original, edit) {
 		// Run diff tool to find differences in original and edited passages
-		var diff = jsdiff.diffChars(original, edit);
-		var n = diff.length
-		var countPrior = 0; // Track previous rows to review 
-		var countAfter = 0; // To skip rows already reviewed
-		var commas = false;	// To track sequence of comma changes
+		let diff = jsdiff.diffChars(original, edit);
+		let n = diff.length
+		let countPrior = 0; // Track previous rows to review 
+		let countAfter = 0; // To skip rows already reviewed
+		let commas = false;	// To track sequence of comma changes
 		
 		// Loop through list of change objects returned from diff tool
-		for (var i = 0; i < n; i++) {
-			var original = "";
-			var edit = "";
-			var priorWord = "";
-			var remWord = "";
-			var remWordEdit = "";
-			var current = diff[i];
-			var prior = diff[i-1];
-			var rem;	// To loop through diff for rest of word
+		for (let i = 0; i < n; i++) {
+			let original = "";
+			let edit = "";
+			let priorWord = "";
+			let remWord = "";
+			let remWordEdit = "";
+			let current = diff[i];
+			let prior = diff[i-1];
+			let rem;	// To loop through diff for rest of word
 			
 			countPrior++;
 			
@@ -41,7 +40,7 @@ var methods = {
 						priorWord = this.getPriorWord(diff, i, countPrior);
 						
 						// Find remaining portion of word
-						for (var y = 1; y < n; y++) {
+						for (let y = 1; y < n; y++) {
 							countAfter++;
 							rem = diff[i + y];
 							if (rem) {
@@ -74,7 +73,7 @@ var methods = {
 						priorWord = this.getPriorWord(diff, i, countPrior);
 						
 						// Find remaining portion of word
-						for (var z = 1; z < n; z++) {
+						for (let z = 1; z < n; z++) {
 							countAfter++;
 							rem = diff[i + z];
 							if (rem) {
@@ -131,9 +130,9 @@ var methods = {
 
 	// Get only the last word in long string of unchanged text
 	getPriorWord: function(diff, i, countPrior) {
-		var priorWords = ""; 
-		for (var x = 1; x < countPrior; x++) {
-			var prev = diff[i - x]['value'];
+		let priorWords = ""; 
+		for (let x = 1; x < countPrior; x++) {
+			let prev = diff[i - x]['value'];
 			if (prev[prev.length - 1] !== ' ') {
 				priorWords = prev.split(' ')
 				return (priorWords[priorWords.length - 1]);
@@ -143,21 +142,21 @@ var methods = {
 	},
 
 	getRemWord: function(words) {
-		var remWords = words.split(' ');
+		let remWords = words.split(' ');
 		return remWords[0];
 	},
 
 	// Add each edit to array of edits
 	addEdit: function(original, edit) {
-		var error = {};
+		let error = {};
 		error['original'] = original.trim();
 		error['edit'] = edit.trim();
 		errors.push(error);
 	},
 
 	combineCommas: function(originalList, editList) {
-		var commasO = originalList.join(' ');
-		var commasE = editList.join(' ');
+		let commasO = originalList.join(' ');
+		let commasE = editList.join(' ');
 		this.addEdit(commasO, commasE);
 		commasOriginal = [];
 		commasEdit = [];

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import '../App.css';
-var diffs = require('./GetDiffs');
+let diffs = require('./GetDiffs');
 
 class StageTwo extends Component {
 	// To make edits to original passage with errors
@@ -12,18 +12,18 @@ class StageTwo extends Component {
 
 	// When passage entered, save to edited variable in parent component
 	handleChange(event) {
-    	var edited = event.target.value;
+    	let edited = event.target.value;
     	this.props.onChange(edited);
   	}
 
   	// Check that passage was modified, find edits, and advance to next stage
 	nextStage() {
-		var edited = this.refs.editedText.value;
+		let edited = this.refs.editedText.value;
 		if (this.props.passage === edited) {
 			alert("No edits entered in passage.");
 		} else {
 			// Use diff tool to find edits between original and edited passage
-			var edits = diffs.getEdits(this.props.passage, edited);
+			let edits = diffs.getEdits(this.props.passage, edited);
 			// Call parent function to save edits
 			this.props.addEdits(edits);
 			this.props.nextStage();
