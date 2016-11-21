@@ -11,7 +11,7 @@ class StageOne extends Component {
 
 	// When passage entered, save to passage variable in parent component
 	handleChange(event) {
-    	let passage = event.target.value;
+    	const passage = event.target.value;
     	this.props.onChange(passage);
   	}
 

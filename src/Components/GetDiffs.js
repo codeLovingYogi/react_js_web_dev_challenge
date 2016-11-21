@@ -1,15 +1,15 @@
 // Diff tool to identify differences between original and edited passages
-let jsdiff = require('diff');
+const jsdiff = require('diff');
 
 let errors = [];
 let commasOriginal = []; // To track sequence of comma changes
 let commasEdit = [];	// To track sequnce of comma changes
 
-let methods = {
+const methods = {
 	getEdits: function(original, edit) {
 		// Run diff tool to find differences in original and edited passages
-		let diff = jsdiff.diffChars(original, edit);
-		let n = diff.length
+		const diff = jsdiff.diffChars(original, edit);
+		const n = diff.length;
 		let countPrior = 0; // Track previous rows to review 
 		let countAfter = 0; // To skip rows already reviewed
 		let commas = false;	// To track sequence of comma changes

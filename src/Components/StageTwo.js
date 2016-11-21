@@ -12,7 +12,7 @@ class StageTwo extends Component {
 
 	// When passage entered, save to edited variable in parent component
 	handleChange(event) {
-    	let edited = event.target.value;
+    	const edited = event.target.value;
     	this.props.onChange(edited);
   	}
 

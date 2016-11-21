@@ -11,7 +11,7 @@ class Concept extends Component {
 
 	// Upon selection of concept, save to appropriate location in list of edits
 	handleChange(event) {
-    	let concept = event.target.value;
+    	const concept = event.target.value;
     	this.props.onChange(this.props.index, concept);
   	}
 
