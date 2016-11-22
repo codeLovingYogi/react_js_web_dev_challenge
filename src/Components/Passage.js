@@ -38,7 +38,6 @@ class Passage extends Component {
 	addEdits(edits){
 		let list = [];
 		list = edits;
-		console.log(edits)
 		this.setState({edits: list});
 	}
 
@@ -64,19 +63,14 @@ class Passage extends Component {
 		switch(this.state.stage) {
 			case 1: 
 				return <StageOne passage={this.state.passage} onChange={this.savePassage} nextStage={this.incrementStage} />;
-				break;
 			case 2: 
 				return <StageTwo passage={this.state.passage} addEdits={this.addEdits} onChange={this.saveEdit} nextStage={this.incrementStage} />;
-				break;
 			case 3: 
 				return <StageThree edits={this.state.edits} onChange={this.addConcepts} nextStage={this.incrementStage} />;
-				break;
 			case 4: 
 				return <Review passage={this.state.passage} edited={this.state.editedPassage} edits={this.state.edits} nextStage={this.incrementStage} addPassage={this.addPassage} />;
-				break;
 			case 5: 
 				return <AllPassages />;
-				break;
 			default:
 				return <StageOne />;
 		}
